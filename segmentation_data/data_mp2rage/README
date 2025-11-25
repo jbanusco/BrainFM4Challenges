@@ -1,0 +1,39 @@
+Data labelling
+--------------
+The following labels were used for the data:
+[1] white matter
+[2] grey matter
+[3] cerebrospinal fluid
+[4] ventricles
+[5] subcortical
+[6] vessels
+[7] saggital sinus
+
+Data acquisition
+----------------
+All images were acquired on a Siemens 7 T whole body scanner (Siemens Medical Solutions, Erlangen, Germany) using a head radio-frequency (RF) coil (Nova Medical, Wilmington, MA, USA; single transmit, 32 receive channels). In all acquisitions, we used dielectric pads (Teeuwisse et al., 2012).
+
+For n=4 subjects (age range 24-58, 2 females, no medical condition)  the MP2RAGE data set consisted of: 3D MP2RAGE data (TR = 5000 ms; TI1/TI2 = 900/2750 ms; TE = 2.46 ms; FA1/FA2 = 5°/3°; FOV = 224×224 mm2; matrix size = 320 × 320; slices = 240; 0.7 mm iso voxels) (Marques et al., 2010). For the same subjects, T2*w images were obtained with a multi-echo 3D GRE sequence (TR = 33 ms; TE1/TE2/TE3/TE4 = 2.53/7.03/12.55/20.35 ms; FA1 = 11°; FOV = 224 x 159 mm2; matrix = 320 x 227; slices = 208; 0.7 mm iso voxels). More details on the MP2RAGE data acquisition and the T2* estimation can be found in (Haast et al., 2016).
+
+Software
+--------
+The following software is used to convert the dicom data to nifti and to deface.
+- dcm2nii (Chris Rorden's dcm2nii, 4AUGUST2014 (Debian) 64bit BSD)
+- pydeface (version 2.0)
+
+References
+----------
+- Gulban, O. F., Schneider, M., Marquardt, I., Haast, R. & Martino, F. De.
+A scalable method to improve outer gray matter boundary segmentation at ultra
+high field MRI. PLoS One. 2018. doi:10.1371/journal.pone.0198335
+- Teeuwisse WM, Brink WM, Webb AG. Quantitative assessment of the effects of
+high-permittivity pads in 7 tesla MRI of the brain. Magnetic resonance in
+medicine. 2012;67(5):1285–1293.
+- Marques JP, Kober T, Krueger G, van der Zwaag W, Van de Moortele PF,
+Gruetter R. MP2RAGE, a self bias-field corrected sequence for improved
+segmentation and T1-mapping at high field. NeuroImage. 2010;49(2):1271–1281.
+doi:10.1016/j.neuroimage.2009.10.002.
+- Haast RAM, Ivanov D, Formisano E, Uludaˇg K. Reproducibility and Reliability
+of Quantitative and Weighted T1 and T2(∗) Mapping for Myelin-Based Cortical
+Parcellation at 7 Tesla. Frontiers in neuroanatomy. 2016;10:112.
+doi:10.3389/fnana.2016.00112.

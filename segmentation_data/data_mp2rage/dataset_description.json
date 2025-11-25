@@ -1,0 +1,11 @@
+{
+    "Name": "High-resolution 7 Tesla segmentation validation data set",
+    "BIDSVersion":  "1.0.2",
+    "License": "Creative Commons Attribution 4.0",
+    "Authors": ["Omer Faruk Gulban", "Marian Schneider", "Ingo Marquardt", "Roy Haast", "Federico De Martino"],
+    "Acknowledgements": "We would like to thank to our funders.",
+    "HowToAcknowledge": "Please cite the correpsonding paper [doi: https://doi.org/10.1101/245738], the software packages [doi: 10.5281/zenodo.595780 and 10.5281/zenodo.596849] and this data set [doi: 10.5281/zenodo.1117858] with their respective dois",
+    "Funding": "This work was financed by the Netherlands Organisation for Scientific Research (NWO). The authors O.F.G. and F.D.M. as well as data acquisition for this data set were supported by NWO VIDI grant 864-13-012. Author M.S. was supported by NWO research talent grant 406-14-108. Author I.M. was supported by NWO research talent grant 406-14-085. Author R.H. was funded by Technology Foundation STW (grant 12724). To create version 3 of the dataset, author M.S. was funded by Brain Innovation BV.",
+    "ReferencesAndLinks": ["A scalable method to improve gray matter segmentation at ultra high field MRI", "PLOS ONE"],
+    "DatasetDOI": "10.5281/zenodo.1117858"
+}

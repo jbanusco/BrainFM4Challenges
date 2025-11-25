@@ -1,0 +1,14 @@
+1.0.0 2018-01-09
+
+- Initial release of dataset accompanying manuscript:
+  A scalable method to improve gray matter segmentation at ultra high field MRI.
+  https://zenodo.org/record/1117859
+
+2.0.0 2018-03-23
+
+- Additional release of MP2RAGE data
+  https://zenodo.org/record/1206163
+
+3.0.0 2019-09-06
+
+- Release of additional labels (beyond gray matter)

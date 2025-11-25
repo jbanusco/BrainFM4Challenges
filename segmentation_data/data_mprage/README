@@ -1,0 +1,31 @@
+Data labelling
+--------------
+The following labels were used for the data:
+[1] white matter
+[2] grey matter
+[3] cerebrospinal fluid
+[4] ventricles
+[5] subcortical
+[6] vessels
+[7] saggital sinus
+
+Data acquisition
+----------------
+All images were acquired on a Siemens 7 T whole body scanner (Siemens Medical Solutions, Erlangen, Germany) using a head radio-frequency (RF) coil (Nova Medical, Wilmington, MA, USA; single transmit, 32 receive channels). In all acquisitions, we used dielectric pads (Teeuwisse et al., 2012).
+
+For n=5 subjects (age range 24-30, 2 females, no medical condition), the MPRAGE data set consisted of: a T1w image using a 3D MPRAGE sequence (repetition time [TR] = 3100 ms; time to inversion [TI] = 1500 ms [adiabatic non-selective inversion pulse]; time echo [TE] = 2.42 ms; flip angle = 5°; generalized auto-calibrating partially parallel acquisitions [GRAPPA] = 3; field of view [FOV] = 224 × 224 mm2; matrix size = 320 × 320; 256 slices; 0.7mm isotropic voxels; pixel bandwidth = 182 Hz/pixel; first phase encode direction anterior to posterior; second phase encode direction left to right), a PDw image (0.7mm isotropic) with the same MPRAGE as for the T1w image but without the inversion pulse (TR = 1380 ms; TE = 2.42 ms; flip angle = 5°; GRAPPA = 3; FOV = 224 × 224 mm; matrix size = 320 × 320; 256 slices; 0.7mm iso. voxels; pixel bandwidth = 182 Hz/pixel; first phase encode direction anterior to posterior; second phase encode direction left to right), and a T2*w anatomical image using a modified MPRAGE sequence that allows freely setting the TE (TR = 4910 ms; TE = 16 ms; flip angle = 5°; GRAPPA= 3; FOV = 224 × 224 mm; matrix size = 320 × 320; 256 slices; 0.7mm iso. voxels; pixel bandwidth = 473 Hz/pixel; first phase encode direction anterior to posterior; second phase encode direction left to right).
+
+Software
+--------
+The following software is used to convert the dicom data to nifti and to deface.
+- dcm2nii (Chris Rorden's dcm2nii, 4AUGUST2014 (Debian) 64bit BSD)
+- pydeface (version 2.0)
+
+References
+----------
+- Gulban, O. F., Schneider, M., Marquardt, I., Haast, R. & Martino, F. De.
+A scalable method to improve outer gray matter boundary segmentation at ultra
+high field MRI. PLoS One. 2018. doi:10.1371/journal.pone.0198335
+- Teeuwisse WM, Brink WM, Webb AG. Quantitative assessment of the effects of
+high-permittivity pads in 7 tesla MRI of the brain. Magnetic resonance in
+medicine. 2012;67(5):1285–1293.

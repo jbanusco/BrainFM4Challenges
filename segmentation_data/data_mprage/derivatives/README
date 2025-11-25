@@ -1,0 +1,25 @@
+Notes
+-----
+This dataset originated from the following initial data set:
+
+Dataset: A scalable method to improve gray matter segmentation at ultra high field MRI.
+
+The initial dataset is openly available as a zenodo repository and can be downloaded:
+https://zenodo.org/record/1206163
+
+Starting from the initial dataset several automated and manual processing steps were then performed to obtain this dataset, which includes more labels than the initial dataset, which only contained gray matter labels. The automated steps were scripted and the scripts are available on github (see links below).
+
+Nature of the data
+------------------
+* labels_v??: gray matter lables; 1 for white matter, 2 for grey matter, 3 for cerebrospinal fluid, 4 for ventricles, 5 for subcortical, 6 for vessels, 7 for saggital sinus, 0 elsewhere
+* brain_mask: mask for the brain; 1 for brain, 0 elsewhere
+* brain_mask_nosub: mask for cerebrum, excluding cerebellum and brain stem; 1 for cerebrum, 0 elsewhere
+
+Processing scripts used for initial dataset
+-------------------------------------------
+https://github.com/MSchnei/segmentator_processing_scripts
+
+
+Processing scripts used for updated dataset
+-------------------------------------------
+https://github.com/MSchnei/MRI_segmentation_preparation_scripts
