@@ -1,0 +1,18 @@
+{
+  "task": "modality_classification",
+  "dataset": "MPRAGE",
+  "classes": {
+    "PD": 0,
+    "T1w": 1,
+    "T2star": 2,
+    "T1wDivPD": 3
+  },
+  "num_classes": 4,
+  "num_modalities": 1,
+  "description": "Multi-class modality type classification using MPRAGE dataset",
+  "total_samples": {
+    "train": 13,
+    "val": 3,
+    "test": 4
+  }
+}

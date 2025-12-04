@@ -1,0 +1,50 @@
+# @package _global_
+
+data:
+  module:
+    _target_: datasets.modality_mprage.ModalityMPRAGEDataModule
+    name: modality_mprage
+    data_root_dir: ${data_dir}
+    splits_path: ${splits_path}
+    batch_size: 2
+    train_transforms:
+      _target_: augmentation.policies.batchgenerators.get_training_transforms
+      patch_size: ${data.patch_size}
+      rotation_for_DA: 0.523599
+      mirror_axes: [0,1,2]
+      do_dummy_2d_data_aug: False
+    test_transforms: null
+  
+  cv:
+    k: 3
+  
+  num_classes: 4
+  patch_size: [160, 160, 160]
+
+model:
+  task: 'Classification'
+  cifar_size: False
+  input_channels: 1
+  input_dim: 3
+  input_shape: ${data.patch_size}
+  optimizer: AdamW
+  lr: 0.0001
+  warmstart: 20
+  weight_decay: 1e-2
+  label_smoothing: 0.1
+  pretrained: True
+  chpt_path: /workspace/models/BaseMAETrainerExtendedHealth__nnsslPlans__onemmiso/fold_all/checkpoint_best.pth
+
+
+trainer:
+  logger:
+    project: modality_mprage_classification
+  accumulate_grad_batches: 8
+  max_epochs: 100
+  sync_batchnorm: True
+  
+metrics:
+  - 'f1'
+  - 'balanced_acc'
+  - 'ap'
+  - 'auroc'
