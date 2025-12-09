@@ -1,14 +1,13 @@
 # BrainFM4Challenges
 
-Foundation models for brain MRI from the SSL3D<sup>w</sup> and FOMO<sup>2</sup> challenges (MICCAI 2025). This repository provides pre-trained models and complete workflows for fine-tuning on segmentation and classification tasks.
-
+Foundation models for brain MRI from the SSL3D<sup>w</sup> and FOMO25<sup>m</sup> challenges (MICCAI 2025). This repository provides pre-trained models and complete workflows for fine-tuning on segmentation and classification tasks.
 
 ## Challenge Results
 
 This repository contains the winning solutions from:
 
 - **[SSL3D Challenge](https://ssl3d-challenge.dkfz.de/home)** (MICCAI 2025) - 1st Place (ResEnc-L)
-- **[FOMO Challenge](https://fomo25.github.io/)** (MICCAI 2025) - 1st Place (Open)
+- **[FOMO25 Challenge](https://fomo25.github.io/)** (MICCAI 2025) - 1st Place (Methods)
 
 Both models were developed using similar self-supervised learning principles but with different architectures tailored to each challenge's specific constraints and requirements.
 
@@ -25,10 +24,10 @@ Pre-trained ResEnc-based<sup>w2</sup> foundation model for brain MRI. Supports b
 
 **Documentation:** [SSL3D_model/README.md](./SSL3D_model/README.md)
 
-### FOMO Model
-Foundation model developed for the FOMO challenge. [To be documented by collaborators]
+### FOMO25 Model
+Foundation model developed for the FOMO25 challenge. Supports both segmentation and classification fine-tuning.
 
-**Documentation:** [FOMO_model/README.md](./FOMO_model/README.md)
+**Documentation:** [FOMO25_model/README.md](./FOMO25_model/README.md)
 
 ## Getting Started for Fine-Tuning Your Own Models
 
@@ -66,7 +65,7 @@ Navigate to the appropriate section based on your task:
 
 - **SSL3D Segmentation** → [SSL3D_model/segmentation/](./SSL3D_model/segmentation/)
 - **SSL3D Classification** → [SSL3D_model/classification/](./SSL3D_model/classification/)
-- **FOMO** → [FOMO_model/](./FOMO_model/)
+- **FOMO25** → [FOMO25_model/](./FOMO25_model/)
 
 Each section contains:
 - Complete setup instructions
@@ -83,7 +82,7 @@ Pre-built Docker images are available on Docker Hub with pre-trained weights emb
 |-------|------|-------|------|
 | SSL3D | Segmentation | `petermcgor/nnunetv2:1.1.0-nnssl` | ~11.02GB |
 | SSL3D | Classification | `petermcgor/nnssl-classification` | ~11.1GB |
-| FOMO | TBD | TBD | TBD |
+| FOMO25 | Segmentation & Classification | `jbanusco/sslmmunetave` | ~6.4GB |
 
 **Note:** Models are embedded in Docker images - no separate downloads required.
 
@@ -111,11 +110,6 @@ We welcome contributions and feedback! If you encounter issues or have suggestio
 
 We plan to add more classification examples in the future based on community needs.
 
-
-## License
-
-[Under study of the CIBM]
-
 ---
 
 **Note:** This repository focuses on fine-tuning our pre-trained foundation models. The code structure is kept similar to the original challenge frameworks to maintain transparency about our winning approach, though it could be optimized from a software engineering perspective.
@@ -142,14 +136,10 @@ This work builds upon and utilizes the following frameworks and challenges:
 
 [w] Wald, T. et al. An OpenMind for 3D medical vision self-supervised learning. Preprint at https://doi.org/10.48550/arXiv.2412.17041 (2025).
 
-2. **[Citation 2 - To be added]**  
-   [Placeholder for reference]
-
 [w2] Wald, T. et al. Revisiting MAE pre-training for 3D medical image segmentation. Preprint at https://doi.org/10.48550/arXiv.2410.23132 (2025).
 
 [i] Isensee, F., Jaeger, P. F., Kohl, S. A. A., Petersen, J. & Maier-Hein, K. H. nnU-Net: a self-configuring method for deep learning-based biomedical image segmentation. Nature Methods 18, 203–211 (2021).
 
+[m] Munk, A. et al. A large-scale heterogeneous 3D magnetic resonance brain imaging dataset for self-supervised learning. Preprint at https://doi.org/10.48550/arXiv.2506.14432 (2025).
 
-
-4. **[Citation 4 - To be added]**  
-   [Placeholder for reference]
+[m2]	Munk, A., Ambsdorf, J., Llambias, S. & Nielsen, M. AMAES: Augmented Masked Autoencoder Pretraining on Public Brain MRI Data for 3D-Native Segmentation. arXiv.org https://arxiv.org/abs/2408.00640v2 (2024).
