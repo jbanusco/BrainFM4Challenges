@@ -44,3 +44,13 @@ segmentation_data/**/*.nii
 
 # Keep the structure files
 !segmentation_data/**/.gitkeep
+
+# nnUNet data directories
+nnUNet_preprocessed/
+nnUNet_raw/
+nnUNet_results/
+
+# experiments/training models
+experiments/
+#foundation pre trained model
+models/
