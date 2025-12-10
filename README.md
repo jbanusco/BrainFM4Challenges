@@ -35,7 +35,7 @@ We provide step-by-step instructions for fine-tuning and inference using both mo
 
 ### 1. Download Example Data
 
-To follow our examples, download the dataset from **[Zenodo](https://zenodo.org/records/1206163)**
+To follow our examples, download the dataset from **[Zenodo](https://zenodo.org/records/3401388)<sup>s</sup>**
 
 1. Download the ZIP file from the Zenodo link above
 2. Save and extract it to `segmentation_data/` in the repository root
@@ -137,6 +137,8 @@ This work builds upon and utilizes the following frameworks and challenges:
 [w] Wald, T. et al. An OpenMind for 3D medical vision self-supervised learning. Preprint at https://doi.org/10.48550/arXiv.2412.17041 (2025).
 
 [w2] Wald, T. et al. Revisiting MAE pre-training for 3D medical image segmentation. Preprint at https://doi.org/10.48550/arXiv.2410.23132 (2025).
+
+[s] Schneider, M., Gulban, F. O. & Goebel, R. Data set for sub-millimetre MRI tissue class segmentation. Zenodo https://doi.org/10.5281/zenodo.3401388 (2019).
 
 [i] Isensee, F., Jaeger, P. F., Kohl, S. A. A., Petersen, J. & Maier-Hein, K. H. nnU-Net: a self-configuring method for deep learning-based biomedical image segmentation. Nature Methods 18, 203–211 (2021).
 
