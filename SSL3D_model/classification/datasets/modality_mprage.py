@@ -11,7 +11,8 @@ import nibabel as nib
 from torch.utils.data import Dataset
 from datasets.base_datamodule import BaseDataModule
 from .blosc2io import Blosc2IO
-
+from batchgeneratorsv2.transforms.spatial.spatial import SpatialTransform
+from batchgeneratorsv2.transforms.utils.compose import ComposeTransforms
 
 class ModalityMPRAGEDataset(Dataset):
     def __init__(self, root, split, splits_path, fold=0, transform=None):
@@ -35,16 +36,18 @@ class ModalityMPRAGEDataset(Dataset):
         #img_filename = f"{sample['case_id']}_{sample['modality_index']:04d}.nii.gz"
         #img_path = self.data_dir / Path(sample['data_source']) / sample['image_folder'] / img_filename
         img_filename = f"{sample['case_id']}.b2nd"
-        img_path = self.data_dir / Path(sample['data_source']) / sample['image_folder'] / "Spacing__1.00_1.00_1.00___Norm__Z_Z_Z_Z" / img_filename
+        img_path = self.data_dir / Path(sample['data_source']) / "Spacing__1.00_1.00_1.00___Norm__Z_Z_Z_Z" / img_filename
         
         #nii = nib.load(str(img_path))
         #img_data = nii.get_fdata().astype(np.float32)
         img, _ = Blosc2IO.load(img_path, mode="r")
         img = img[int(sample['label'])]
+        print("Dims", img.shape)
         
         # Add channel dimension: (H, W, D) -> (1, H, W, D)
-        #img_data = img_data[np.newaxis, ...]
-        
+        img = img[np.newaxis, ...]
+        print("Dims2", img.shape)
+
         if self.transform:
             img = self.transform(**{"image": torch.from_numpy(img)})["image"]
         else:
@@ -57,11 +60,26 @@ class ModalityMPRAGEDataset(Dataset):
 
 
 class ModalityMPRAGEDataModule(BaseDataModule):
-    def __init__(self, splits_path=None,**params):
+    def __init__(self, splits_path=None, patch_size=(160, 160, 160),**params):
         super(ModalityMPRAGEDataModule, self).__init__(**params)
         self.splits_path = splits_path
+        self.patch_size = patch_size
+
     
     def setup(self, stage: str):
+
+        # Create validation transform: just crop/pad, no augmentation
+        val_transform = ComposeTransforms([
+            SpatialTransform(
+                patch_size=self.patch_size,
+                patch_center_dist_from_border=0,
+                random_crop=False,
+                p_elastic_deform=0,
+                p_rotation=0,
+                p_scaling=0,
+            )
+        ])
+
         self.train_dataset = ModalityMPRAGEDataset(
             self.data_path,
             split="train",
@@ -73,6 +91,6 @@ class ModalityMPRAGEDataModule(BaseDataModule):
             self.data_path,
             split="val",
             splits_path=self.splits_path,
-            transform=self.test_transforms,
+            transform=val_transform,
             fold=self.fold,
         )

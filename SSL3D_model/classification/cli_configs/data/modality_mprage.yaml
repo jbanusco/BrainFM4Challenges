@@ -6,7 +6,7 @@ data:
     name: modality_mprage
     data_root_dir: ${data_dir}
     splits_path: ${splits_path}
-    batch_size: 2
+    batch_size: 1
     train_transforms:
       _target_: augmentation.policies.batchgenerators.get_training_transforms
       patch_size: ${data.patch_size}
@@ -14,6 +14,7 @@ data:
       mirror_axes: [0,1,2]
       do_dummy_2d_data_aug: False
     test_transforms: null
+        #_target_: null
   
   cv:
     k: 3
@@ -39,7 +40,7 @@ model:
 trainer:
   logger:
     project: modality_mprage_classification
-  accumulate_grad_batches: 8
+  accumulate_grad_batches: 2
   max_epochs: 100
   sync_batchnorm: True
   
