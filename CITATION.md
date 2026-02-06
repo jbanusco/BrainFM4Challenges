@@ -2,7 +2,7 @@
 
 ## Current Status
 
-Our paper is currently **under review** at Nature Machine Intelligence.
+Our paper is currently **under review**.
 
 **Title:** From 100,000+ images to winning the first brain MRI foundation model challenges: Sharing lessons and models
 
@@ -12,29 +12,20 @@ Our paper is currently **under review** at Nature Machine Intelligence.
 
 Until the paper is published, please cite this repository as:
 ```bibtex
-@misc{brainfm2025,
-  title={From 100,000+ images to winning the first brain MRI foundation model challenges: Sharing lessons and models},
-  author={[Authors - To be added]},
-  year={2025},
-  note={Under review at Nature Machine Intelligence},
-  howpublished={\url{https://github.com/[your-username]/BrainFM4Challenges}}
+@article{brainfm2025,
+      title={From 100,000+ images to winning the first brain MRI foundation model challenges: Sharing lessons and models}, 
+      author={Pedro M. Gordaliza and Jaume Banus and Benoît Gérin and Maxence Wynen and Nataliia Molchanova and Jonas Richiardi and Meritxell Bach Cuadra},
+      year={2026},
+      eprint={2601.13166},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2601.13166}, 
 }
 ```
 
 ### Final Citation (Once Published)
 
-This section will be updated with the official citation once the paper is accepted and published in Nature Machine Intelligence.
-```bibtex
-@article{brainfm2025,
-  title={From 100,000+ images to winning the first brain MRI foundation model challenges: Sharing lessons and models},
-  author={[Authors]},
-  journal={Nature Machine Intelligence},
-  year={2025},
-  volume={TBD},
-  pages={TBD},
-  doi={TBD}
-}
-```
+This section will be updated with the official citation once the paper is accepted and published.
 
 ## What to Cite
 
@@ -51,5 +42,5 @@ This work was developed as part of the SSL3D and FOMO challenges at MICCAI 2025.
 
 ---
 
-**Last Updated:** December 2025  
-**Status:** Manuscript under review at Nature Machine Intelligence
+**Last Updated:** February 2026
+**Status:** Manuscript under review.

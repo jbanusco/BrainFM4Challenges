@@ -50,6 +50,10 @@ nnUNet_preprocessed/
 nnUNet_raw/
 nnUNet_results/
 
+# fomo25 data directories
+fomo25_preprocessed/
+fomo25_results/
+
 # experiments/training models
 experiments/
 #foundation pre trained model

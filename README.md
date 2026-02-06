@@ -121,10 +121,13 @@ Our work is currently under review.
 **Temporary Citation:**
 ```bibtex
 @article{brainfm2025,
-  title={TITLE},
-  author={[Authors]},
-  journal={Under Review},
-  year={2025}
+      title={From 100,000+ images to winning the first brain MRI foundation model challenges: Sharing lessons and models}, 
+      author={Pedro M. Gordaliza and Jaume Banus and Benoît Gérin and Maxence Wynen and Nataliia Molchanova and Jonas Richiardi and Meritxell Bach Cuadra},
+      year={2026},
+      eprint={2601.13166},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2601.13166}, 
 }
 ```
 
