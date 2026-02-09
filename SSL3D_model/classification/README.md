@@ -25,6 +25,11 @@ Pull the image:
 docker pull petermcgor/nnssl-classification
 ```
 
+**What's included in the image:**
+- Pre-trained SSL3D ResEnc-L checkpoint at `/workspace/models/BaseMAETrainerExtendedHealth__nnsslPlans__onemmiso/fold_all/checkpoint_best.pth`
+- Classification framework and all dependencies
+- You don't need to download the checkpoint separately - it's already in the Docker image
+
 ## Prerequisites
 
 - NVIDIA GPU with CUDA support
@@ -32,6 +37,31 @@ docker pull petermcgor/nnssl-classification
 - **Preprocessed data:** If following our example, you must run the segmentation preprocessing first (see [segmentation guide](../segmentation/))
 
 **Important:** All commands below should be run from the **repository root directory**.
+
+### Expected Directory Structure
+
+Before running training, ensure your directory is organized like this:
+```
+your_project/                          # Repository root - run commands from here
+├── data/                              # Your data directory
+│   ├── nnUNet_preprocessed/          # Preprocessed data (if using our example)
+│   │   └── Dataset002_MPRAGE/
+│   └── nnUNet_raw/                   # Raw data (optional)
+│       └── Dataset002_MPRAGE/
+└── SSL3D_model/
+    └── classification/
+        ├── datasets/
+        │   └── modality_mprage.py
+        └── cli_configs/
+            ├── data/
+            │   ├── modality_mprage.yaml
+            │   └── modality_mprage/
+            │       └── splits_prepro.json
+            └── env/
+                └── cluster.yaml
+```
+
+**Note:** The pre-trained checkpoint is already inside the Docker image at `/workspace/models/` - you don't need to have a local `models/` directory.
 
 ## Example: Modality Classification
 
@@ -65,7 +95,8 @@ nnUNet_preprocessed/Dataset002_MPRAGE/Spacing__1.00_1.00_1.00___Norm__Z_Z_Z_Z/
 Run classification training with Docker:
 ```bash
 docker run --gpus all --rm \
-  -v $(pwd):/workspace \
+  -v $(pwd)/data:/workspace/data \  
+  -v $(pwd)/nnUNet_raw:/workspace/nnUNet_raw \
   -v $(pwd)/SSL3D_model/classification/datasets/modality_mprage.py:/opt/SSL3D_classification/datasets/modality_mprage.py \
   -v $(pwd)/SSL3D_model/classification/cli_configs/data/modality_mprage.yaml:/opt/SSL3D_classification/cli_configs/data/modality_mprage.yaml \
   -v $(pwd)/SSL3D_model/classification/cli_configs/env/cluster.yaml:/opt/SSL3D_classification/cli_configs/env/cluster.yaml \
@@ -75,7 +106,7 @@ docker run --gpus all --rm \
   petermcgor/nnssl-classification \
   python3 /opt/SSL3D_classification/main.py \
     data=modality_mprage \
-    data_dir=/workspace \
+    data_dir=/workspace/data \ 
     model=resenc \
     trainer.devices=1 \
     trainer.max_epochs=100 \
@@ -83,6 +114,11 @@ docker run --gpus all --rm \
     env=cluster \
     +splits_path=/opt/SSL3D_classification/cli_configs/data/modality_mprage/splits.json
 ```
+**Docker Mount Points Explained:**
+- `-v $(pwd)/data:/workspace/data` - Your local data directory → container's `/workspace/data`
+- `-v $(pwd)/nnUNet_raw:/workspace/nnUNet_raw` - Raw data → container's `/workspace/nnUNet_raw`
+- Custom config files are mounted to `/opt/SSL3D_classification/cli_configs/...`
+- **The pre-trained checkpoint** at `/workspace/models/...` is already in the Docker image (not mounted)
 
 **Parameters Explained:**
 - `data=modality_mprage`: Uses the modality classification config

@@ -42,11 +42,11 @@ class ModalityMPRAGEDataset(Dataset):
         #img_data = nii.get_fdata().astype(np.float32)
         img, _ = Blosc2IO.load(img_path, mode="r")
         img = img[int(sample['label'])]
-        print("Dims", img.shape)
+        #print("Dims", img.shape)
         
         # Add channel dimension: (H, W, D) -> (1, H, W, D)
         img = img[np.newaxis, ...]
-        print("Dims2", img.shape)
+        #print("Dims2", img.shape)
 
         if self.transform:
             img = self.transform(**{"image": torch.from_numpy(img)})["image"]
